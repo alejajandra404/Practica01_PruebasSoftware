@@ -25,9 +25,13 @@ S03_ Autorizacion
 S04_Usuario_Con_Error
     Inicializar Navegador
     Login                           ${usuario_error}    ${psw_valida}
+    Click Button                    xpath=//*[@id="add-to-cart-sauce-labs-fleece-jacket"]
+    Click Element                   class=shopping_cart_link
+    Page Should Not Contain Element    class=cart_item
+    Click Element                   xpath=//*[@id="continue-shopping"]
     Click Element                   xpath=//*[@id="header_container"]/div[2]/div/span/select
     Click Element                   xpath=//*[@id="header_container"]/div[2]/div/span/select/option[2]
-    Handle Alert
+    Alert Should Be Present         Sorting is broken! This error has been reported to Backtrace.
     Close Browser
 
 S05_Agregar_Producto_Al_Carrito
