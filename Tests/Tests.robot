@@ -31,7 +31,7 @@ S04_Usuario_Con_Error
     Click Element                   xpath=//*[@id="continue-shopping"]
     Click Element                   xpath=//*[@id="header_container"]/div[2]/div/span/select
     Click Element                   xpath=//*[@id="header_container"]/div[2]/div/span/select/option[2]
-    Alert Should Be Present         Sorting is broken! This error has been reported to Backtrace.
+    Handle Alert
     Close Browser
 
 S05_Agregar_Producto_Al_Carrito
