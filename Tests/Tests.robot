@@ -4,11 +4,37 @@ Resource        ../Data/Variables.robot
 Resource        ../Resources/Keywords.robot
 
 *** Test Cases ***
+S01_Login_Valido
+    Inicializar Navegador
+    Login       ${usuario_valido}           ${psw_valida}
+    Page Should Contain    Products
+    Close Browser
+
+S02_Login_Invalido
+    Inicializar Navegador
+    Login       ${usuario_invalido}           ${psw_invalida}
+    Page Should Not Contain    Products
+    Close Browser
+
+S03_ Autorizacion
+    Open Browser                ${None}      ${browser}
+    Go To                       ${URL_Inventory}
+    Page Should Not Contain     Products
+    Close Browser
+
+S04_Usuario_Con_Error
+    Inicializar Navegador
+    Login                           ${usuario_error}    ${psw_valida}
+    Click Element                   xpath=//*[@id="header_container"]/div[2]/div/span/select
+    Click Element                   xpath=//*[@id="header_container"]/div[2]/div/span/select/option[2]
+    Handle Alert
+    Close Browser
+
 S05_Agregar_Producto_Al_Carrito
     Inicializar Navegador
-    Login                       ${usuario_valido}           ${psw_valida}
+    Login                           ${usuario_valido}           ${psw_valida}
     Agregar Producto Al Carrito
-    Page Should Contain         Sauce Labs Backpack
+    Page Should Contain             Sauce Labs Backpack
     Close Browser
 
 S06_Verificar_Contador_Del_Carrito
